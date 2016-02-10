@@ -523,7 +523,7 @@
             _.$slides.wrapAll('<div class="slick-track"/>').parent();
 
         _.$list = _.$slideTrack.wrap(
-            '<div aria-live="polite" class="slick-list"/>').parent();
+            '<div  class="slick-list"/>').parent();
         _.$slideTrack.css('opacity', 0);
 
         if (_.options.centerMode === true || _.options.swipeToSlide === true) {
@@ -1282,7 +1282,10 @@
             'tabindex': '-1'
         });
 
-        _.$slideTrack.attr('role', 'listbox');
+        _.$slideTrack.attr({
+            'role': 'listbox',
+            'aria-live': 'polite'
+        });
 
         _.$slides.not(_.$slideTrack.find('.slick-cloned')).each(function(i) {
             $(this).attr({
